@@ -5,8 +5,8 @@ git branch -va
 
 # original setup of dev branch: 
 git pull
-git checkout -b brian origin/main
-git push -u origin brian
+git checkout -b briar origin/main
+git push -u origin briar
 
 # bring branch up to date
 git checkout my-branch
