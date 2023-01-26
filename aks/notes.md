@@ -4,7 +4,7 @@
 
 ```bash
 export RG=aks
-export CLUSTERNAME=briar-aks
+export CLUSTERNAME=briar-aks-test
 export K8SVERSION=1.25.4
 export VMSIZE=Standard_D2_v2
 export NODECOUNT=5

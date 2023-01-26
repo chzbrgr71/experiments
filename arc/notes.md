@@ -64,8 +64,7 @@ sudo systemctl restart sshd
 az vm open-port --port 22000 --resource-group $RG --name $VM1
 
 # connect to K3s and Arc enable
-export VM1_PIP='52.188.147.214'
-
+export VM1_PIP=''
 ssh -i ~/.ssh/id_rsa -p 22000 azureuser@$VM1_PIP
 
 sudo cp /etc/rancher/k3s/k3s.yaml ~/.kube/config && sudo chown $USER ~/.kube/config && sudo chmod 600 ~/.kube/config && export KUBECONFIG=~/.kube/config
@@ -117,7 +116,9 @@ az k8s-configuration flux create -g arc \
 #### Policy
 
 ```bash
+
 kubectl run -i -t busybox --image=busybox --restart=Never
+
 ```
 
 #### Cluster Connect
@@ -127,7 +128,7 @@ https://learn.microsoft.com/en-us/azure/azure-arc/kubernetes/cluster-connect?tab
 ```bash
 export RG='arc'
 export CLUSTER='k3scluster'
-export TOKEN=eyJhbGciOiJSUzI1NiIsImtpZCI6IndOaElWcElZeXVMSWRMUW1UOWRnREtkaHB6NDB1bjVRbm8xMlZsTV9wRzQifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJkZWZhdWx0Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6ImRlbW8tdXNlci1zZWNyZXQiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoiZGVtby11c2VyIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQudWlkIjoiNzAxNDc2ZjUtMjkxNi00MjUyLWE4NDUtZTc1MTZmYTQyYzE0Iiwic3ViIjoic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6ZGVtby11c2VyIn0.VRUc0HN0KmqmHKeXJMI5F_CGxB3TbXsOQ1BFMwCxGyZE13ko4nWyYHcpY67gd5gh0xph2vnQ65Lnai23yYwbL9WEkZgztdR7hxfcaQCGSyz0S7WE8Dnme3_Zyg0TNWtXQR7fqj5r-S_oDhZoyN-IG72hdjN6SiRgro_15MO_UYphst_F8ZTcGsWslYJpaizbspXogqjMCtuxvV6hG8Fblwm6MjDoUWijLHgyj9XLZ6sCnK8fAkuhwNe5gB1cWQ6NpPQQwUeTqWiQFJsSGZoq7oo7Wb68xf9VNul-ZD7CxLuepskSrI5LtiQu-ZRJ2AupjRJ3iMpt4v0rPA3b44UY-A
+export TOKEN=''
 
 az connectedk8s proxy -n $CLUSTER -g $RG --token $TOKEN
 

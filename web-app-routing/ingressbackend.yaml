@@ -1,0 +1,19 @@
+apiVersion: policy.openservicemesh.io/v1alpha1
+kind: IngressBackend
+metadata:
+  name: aks-helloworld
+  namespace: hello-web-app-routing
+spec:
+  backends:
+  - name: aks-helloworld
+    port:
+      number: 80
+      protocol: https
+    tls:
+      skipClientCertValidation: false
+  sources:
+  - kind: Service
+    name: nginx
+    namespace: app-routing-system
+  - kind: AuthenticatedPrincipal
+    name: ingress-nginx.ingress.cluster.local
