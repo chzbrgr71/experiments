@@ -5,8 +5,8 @@ git branch -va
 
 # original setup of dev branch: 
 git pull
-git checkout -b briar origin/main
-git push -u origin briar
+git checkout -b openai origin/main
+git push -u origin openai
 
 # bring branch up to date
 git checkout my-branch
