@@ -11,8 +11,8 @@ az cognitiveservices account create \
     --kind OpenAI \
     --sku s0 
 
-export OPENAI_ENDPOINT=$(az cognitiveservices account show -n $OPENAI_NAME -g $RG -o json | jq -r .properties.endpoint)
-export OPENAI_KEY=$(az cognitiveservices account keys list -n $OPENAI_NAME -g $RG -o json | jq -r .key1)
+export AZURE_OPENAI_ENDPOINT=$(az cognitiveservices account show -n $OPENAI_NAME -g $RG -o json | jq -r .properties.endpoint)
+export AZURE_OPENAI_API_KEY=$(az cognitiveservices account keys list -n $OPENAI_NAME -g $RG -o json | jq -r .key1)
 
 az cognitiveservices account deployment create \
    -g $RG \
@@ -23,6 +23,8 @@ az cognitiveservices account deployment create \
    --model-format OpenAI \
    --scale-settings-scale-type "Standard"
 
+export SPEECH_KEY=''
+export SPEECH_REGION=''
 
 
 ```

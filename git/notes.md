@@ -5,8 +5,8 @@ git branch -va
 
 # original setup of dev branch: 
 git pull
-git checkout -b brianr-updates origin/main
-git push -u origin brianr-updates
+git checkout -b readme-updates origin/main
+git push -u origin yaml-updates
 
 # bring branch up to date
 git checkout my-branch
